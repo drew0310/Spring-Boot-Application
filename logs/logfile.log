@@ -123,3 +123,10 @@ java.lang.ClassCastException: class com.andrew.delds.model.ApiResponse cannot be
 2024-06-25 15:21:33.590 [http-nio-8080-exec-4] ERROR c.a.d.exception.RestExceptionHandler - CID:4df6e011-4b22-41ad-a75b-febd0c60a685 Status code 400 - Invalid URL: no handler found for GET /delivery/data/AccountSettings/account 
 2024-06-25 15:22:20.417 [http-nio-8080-exec-6] DEBUG c.a.delds.controller.MainController - CID:32fb9e8f-c498-42e3-a858-b01dc48fd87e Received request to fetch Account object with ID 1004 
 2024-06-25 15:22:20.428 [http-nio-8080-exec-6] ERROR c.a.d.exception.RestExceptionHandler - CID:32fb9e8f-c498-42e3-a858-b01dc48fd87e Status code 404 - Account object with ID 1004 not found 
+2024-06-26 10:48:47.168 [main] INFO  com.andrew.delds.DeldsApplication - CID: Starting DeldsApplication using Java 21.0.2 with PID 36324 (C:\Users\aramac618\Downloads\delds\delds\target\classes started by aramac618 in C:\Users\aramac618\Downloads\delds) 
+2024-06-26 10:48:47.169 [main] DEBUG com.andrew.delds.DeldsApplication - CID: Running with Spring Boot v3.2.4, Spring v6.1.5 
+2024-06-26 10:48:47.169 [main] INFO  com.andrew.delds.DeldsApplication - CID: No active profile set, falling back to 1 default profile: "default" 
+2024-06-26 10:48:48.558 [main] DEBUG com.andrew.delds.filter.CIDFilter - CID: Filter 'CIDFilter' configured for use 
+2024-06-26 10:48:51.363 [main] INFO  com.andrew.delds.DeldsApplication - CID: Started DeldsApplication in 4.494 seconds (process running for 4.999) 
+2024-06-26 10:49:04.490 [http-nio-8080-exec-1] DEBUG c.a.delds.controller.MainController - CID:f860d485-98de-4aa1-9fcc-952b48d0c59f Received request to fetch Account object with ID 1001 
+2024-06-26 10:49:04.550 [http-nio-8080-exec-1] DEBUG c.a.delds.service.AccountService - CID:f860d485-98de-4aa1-9fcc-952b48d0c59f Status code 200 - Fetched Account object with ID 1001 
