@@ -121,11 +121,11 @@ public class MainControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().writeValueAsString(account)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(account.getId()))
-                .andExpect(jsonPath("$.guid").value(account.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(account.getOwnerid()))
-                .andExpect(jsonPath("$.locked").value(account.getLocked()))
-                .andExpect(jsonPath("$.maxconlimit").value(account.getMaxconlimit()));
+                .andExpect(jsonPath("$.data.id").value(account.getId()))
+                .andExpect(jsonPath("$.data.guid").value(account.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(account.getOwnerid()))
+                .andExpect(jsonPath("$.data.locked").value(account.getLocked()))
+                .andExpect(jsonPath("$.data.maxconlimit").value(account.getMaxconlimit()));
 
     }
 
@@ -138,11 +138,11 @@ public class MainControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(Collections.singletonList(account))))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(account.getId()))
-                .andExpect(jsonPath("$[0].guid").value(account.getGuid()))
-                .andExpect(jsonPath("$[0].ownerid").value(account.getOwnerid()))
-                .andExpect(jsonPath("$[0].locked").value(account.getLocked()))
-                .andExpect(jsonPath("$[0].maxconlimit").value(account.getMaxconlimit()));
+                .andExpect(jsonPath("$.data[0].id").value(account.getId()))
+                .andExpect(jsonPath("$.data[0].guid").value(account.getGuid()))
+                .andExpect(jsonPath("$.data[0].ownerid").value(account.getOwnerid()))
+                .andExpect(jsonPath("$.data[0].locked").value(account.getLocked()))
+                .andExpect(jsonPath("$.data[0].maxconlimit").value(account.getMaxconlimit()));
 
     }
 
@@ -153,11 +153,11 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/AccountSettings/accounts")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(account.getId()))
-                .andExpect(jsonPath("$[0].guid").value(account.getGuid()))
-                .andExpect(jsonPath("$[0].ownerid").value(account.getOwnerid()))
-                .andExpect(jsonPath("$[0].locked").value(account.getLocked()))
-                .andExpect(jsonPath("$[0].maxconlimit").value(account.getMaxconlimit()));
+                .andExpect(jsonPath("$.data[0].id").value(account.getId()))
+                .andExpect(jsonPath("$.data[0].guid").value(account.getGuid()))
+                .andExpect(jsonPath("$.data[0].ownerid").value(account.getOwnerid()))
+                .andExpect(jsonPath("$.data[0].locked").value(account.getLocked()))
+                .andExpect(jsonPath("$.data[0].maxconlimit").value(account.getMaxconlimit()));
 
     }
 
@@ -168,11 +168,11 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/AccountSettings/accountsById/{id}", 7)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(account.getId()))
-                .andExpect(jsonPath("$.guid").value(account.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(account.getOwnerid()))
-                .andExpect(jsonPath("$.locked").value(account.getLocked()))
-                .andExpect(jsonPath("$.maxconlimit").value(account.getMaxconlimit()));
+                .andExpect(jsonPath("$.data.id").value(account.getId()))
+                .andExpect(jsonPath("$.data.guid").value(account.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(account.getOwnerid()))
+                .andExpect(jsonPath("$.data.locked").value(account.getLocked()))
+                .andExpect(jsonPath("$.data.maxconlimit").value(account.getMaxconlimit()));
     }
 
     @Test
@@ -182,11 +182,11 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/AccountSettings/accountsByGuid/{guid}", "sample GUID")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(account.getId()))
-                .andExpect(jsonPath("$.guid").value(account.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(account.getOwnerid()))
-                .andExpect(jsonPath("$.locked").value(account.getLocked()))
-                .andExpect(jsonPath("$.maxconlimit").value(account.getMaxconlimit()));
+                .andExpect(jsonPath("$.data.id").value(account.getId()))
+                .andExpect(jsonPath("$.data.guid").value(account.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(account.getOwnerid()))
+                .andExpect(jsonPath("$.data.locked").value(account.getLocked()))
+                .andExpect(jsonPath("$.data.maxconlimit").value(account.getMaxconlimit()));
     }
 
     @Test
@@ -196,11 +196,11 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/AccountSettings/accountsByOwnerid/{ownerid}", 7L)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(account.getId()))
-                .andExpect(jsonPath("$.guid").value(account.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(account.getOwnerid()))
-                .andExpect(jsonPath("$.locked").value(account.getLocked()))
-                .andExpect(jsonPath("$.maxconlimit").value(account.getMaxconlimit()));
+                .andExpect(jsonPath("$.data.id").value(account.getId()))
+                .andExpect(jsonPath("$.data.guid").value(account.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(account.getOwnerid()))
+                .andExpect(jsonPath("$.data.locked").value(account.getLocked()))
+                .andExpect(jsonPath("$.data.maxconlimit").value(account.getMaxconlimit()));
     }
 
     @Test
@@ -210,7 +210,7 @@ public class MainControllerTest {
         mockMvc.perform(delete("/delivery/data/AccountSettings/deleteAccount/{id}", 7)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Account object with ID 7 removed"));
+                .andExpect(jsonPath("$.data.data").value("Account object with ID 7 removed"));
 
     }
 
@@ -223,11 +223,11 @@ public class MainControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(account)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(account.getId()))
-                .andExpect(jsonPath("$.guid").value(account.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(account.getOwnerid()))
-                .andExpect(jsonPath("$.locked").value(account.getLocked()))
-                .andExpect(jsonPath("$.maxconlimit").value(account.getMaxconlimit()));
+                .andExpect(jsonPath("$.data.id").value(account.getId()))
+                .andExpect(jsonPath("$.data.guid").value(account.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(account.getOwnerid()))
+                .andExpect(jsonPath("$.data.locked").value(account.getLocked()))
+                .andExpect(jsonPath("$.data.maxconlimit").value(account.getMaxconlimit()));
 
     }
 
@@ -247,15 +247,15 @@ public class MainControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(adPolicy)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(adPolicy.getId()))
-                .andExpect(jsonPath("$.guid").value(adPolicy.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(adPolicy.getOwnerid()))
-                .andExpect(jsonPath("$.adtype").value(adPolicy.getAdtype()))
-                .andExpect(jsonPath("$.adtitle").value(adPolicy.getAdtitle()))
-                .andExpect(jsonPath("$.adformat").value(adPolicy.getAdformat()))
-                .andExpect(jsonPath("$.canskip").value(adPolicy.getCanskip()))
-                .andExpect(jsonPath("$.count").value(adPolicy.getCount()))
-                .andExpect(jsonPath("$.duration").value(adPolicy.getDuration()));
+                .andExpect(jsonPath("$.data.id").value(adPolicy.getId()))
+                .andExpect(jsonPath("$.data.guid").value(adPolicy.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(adPolicy.getOwnerid()))
+                .andExpect(jsonPath("$.data.adtype").value(adPolicy.getAdtype()))
+                .andExpect(jsonPath("$.data.adtitle").value(adPolicy.getAdtitle()))
+                .andExpect(jsonPath("$.data.adformat").value(adPolicy.getAdformat()))
+                .andExpect(jsonPath("$.data.canskip").value(adPolicy.getCanskip()))
+                .andExpect(jsonPath("$.data.count").value(adPolicy.getCount()))
+                .andExpect(jsonPath("$.data.duration").value(adPolicy.getDuration()));
 
     }
 
@@ -268,15 +268,15 @@ public class MainControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(Collections.singletonList(adPolicy))))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(adPolicy.getId()))
-                .andExpect(jsonPath("$[0].guid").value(adPolicy.getGuid()))
-                .andExpect(jsonPath("$[0].ownerid").value(adPolicy.getOwnerid()))
-                .andExpect(jsonPath("$[0].adtype").value(adPolicy.getAdtype()))
-                .andExpect(jsonPath("$[0].adtitle").value(adPolicy.getAdtitle()))
-                .andExpect(jsonPath("$[0].adformat").value(adPolicy.getAdformat()))
-                .andExpect(jsonPath("$[0].canskip").value(adPolicy.getCanskip()))
-                .andExpect(jsonPath("$[0].count").value(adPolicy.getCount()))
-                .andExpect(jsonPath("$[0].duration").value(adPolicy.getDuration()));
+                .andExpect(jsonPath("$.data[0].id").value(adPolicy.getId()))
+                .andExpect(jsonPath("$.data[0].guid").value(adPolicy.getGuid()))
+                .andExpect(jsonPath("$.data[0].ownerid").value(adPolicy.getOwnerid()))
+                .andExpect(jsonPath("$.data[0].adtype").value(adPolicy.getAdtype()))
+                .andExpect(jsonPath("$.data[0].adtitle").value(adPolicy.getAdtitle()))
+                .andExpect(jsonPath("$.data[0].adformat").value(adPolicy.getAdformat()))
+                .andExpect(jsonPath("$.data[0].canskip").value(adPolicy.getCanskip()))
+                .andExpect(jsonPath("$.data[0].count").value(adPolicy.getCount()))
+                .andExpect(jsonPath("$.data[0].duration").value(adPolicy.getDuration()));
 
     }
 
@@ -287,15 +287,15 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/AdPolicy/adPolicies")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(adPolicy.getId()))
-                .andExpect(jsonPath("$[0].guid").value(adPolicy.getGuid()))
-                .andExpect(jsonPath("$[0].ownerid").value(adPolicy.getOwnerid()))
-                .andExpect(jsonPath("$[0].adtype").value(adPolicy.getAdtype()))
-                .andExpect(jsonPath("$[0].adtitle").value(adPolicy.getAdtitle()))
-                .andExpect(jsonPath("$[0].adformat").value(adPolicy.getAdformat()))
-                .andExpect(jsonPath("$[0].canskip").value(adPolicy.getCanskip()))
-                .andExpect(jsonPath("$[0].count").value(adPolicy.getCount()))
-                .andExpect(jsonPath("$[0].duration").value(adPolicy.getDuration()));
+                .andExpect(jsonPath("$.data[0].id").value(adPolicy.getId()))
+                .andExpect(jsonPath("$.data[0].guid").value(adPolicy.getGuid()))
+                .andExpect(jsonPath("$.data[0].ownerid").value(adPolicy.getOwnerid()))
+                .andExpect(jsonPath("$.data[0].adtype").value(adPolicy.getAdtype()))
+                .andExpect(jsonPath("$.data[0].adtitle").value(adPolicy.getAdtitle()))
+                .andExpect(jsonPath("$.data[0].adformat").value(adPolicy.getAdformat()))
+                .andExpect(jsonPath("$.data[0].canskip").value(adPolicy.getCanskip()))
+                .andExpect(jsonPath("$.data[0].count").value(adPolicy.getCount()))
+                .andExpect(jsonPath("$.data[0].duration").value(adPolicy.getDuration()));
 
 
     }
@@ -307,15 +307,15 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/AdPolicy/adPoliciesById/{id}", 7)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(adPolicy.getId()))
-                .andExpect(jsonPath("$.guid").value(adPolicy.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(adPolicy.getOwnerid()))
-                .andExpect(jsonPath("$.adtype").value(adPolicy.getAdtype()))
-                .andExpect(jsonPath("$.adtitle").value(adPolicy.getAdtitle()))
-                .andExpect(jsonPath("$.adformat").value(adPolicy.getAdformat()))
-                .andExpect(jsonPath("$.canskip").value(adPolicy.getCanskip()))
-                .andExpect(jsonPath("$.count").value(adPolicy.getCount()))
-                .andExpect(jsonPath("$.duration").value(adPolicy.getDuration()));
+                .andExpect(jsonPath("$.data.id").value(adPolicy.getId()))
+                .andExpect(jsonPath("$.data.guid").value(adPolicy.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(adPolicy.getOwnerid()))
+                .andExpect(jsonPath("$.data.adtype").value(adPolicy.getAdtype()))
+                .andExpect(jsonPath("$.data.adtitle").value(adPolicy.getAdtitle()))
+                .andExpect(jsonPath("$.data.adformat").value(adPolicy.getAdformat()))
+                .andExpect(jsonPath("$.data.canskip").value(adPolicy.getCanskip()))
+                .andExpect(jsonPath("$.data.count").value(adPolicy.getCount()))
+                .andExpect(jsonPath("$.data.duration").value(adPolicy.getDuration()));
 
     }
 
@@ -326,15 +326,15 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/AdPolicy/adPoliciesByGuid/{guid}", "sample GUID")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(adPolicy.getId()))
-                .andExpect(jsonPath("$.guid").value(adPolicy.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(adPolicy.getOwnerid()))
-                .andExpect(jsonPath("$.adtype").value(adPolicy.getAdtype()))
-                .andExpect(jsonPath("$.adtitle").value(adPolicy.getAdtitle()))
-                .andExpect(jsonPath("$.adformat").value(adPolicy.getAdformat()))
-                .andExpect(jsonPath("$.canskip").value(adPolicy.getCanskip()))
-                .andExpect(jsonPath("$.count").value(adPolicy.getCount()))
-                .andExpect(jsonPath("$.duration").value(adPolicy.getDuration()));
+                .andExpect(jsonPath("$.data.id").value(adPolicy.getId()))
+                .andExpect(jsonPath("$.data.guid").value(adPolicy.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(adPolicy.getOwnerid()))
+                .andExpect(jsonPath("$.data.adtype").value(adPolicy.getAdtype()))
+                .andExpect(jsonPath("$.data.adtitle").value(adPolicy.getAdtitle()))
+                .andExpect(jsonPath("$.data.adformat").value(adPolicy.getAdformat()))
+                .andExpect(jsonPath("$.data.canskip").value(adPolicy.getCanskip()))
+                .andExpect(jsonPath("$.data.count").value(adPolicy.getCount()))
+                .andExpect(jsonPath("$.data.duration").value(adPolicy.getDuration()));
 
     }
 
@@ -345,15 +345,15 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/AdPolicy/adPoliciesByOwnerid/{ownerid}", 7L)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(adPolicy.getId()))
-                .andExpect(jsonPath("$.guid").value(adPolicy.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(adPolicy.getOwnerid()))
-                .andExpect(jsonPath("$.adtype").value(adPolicy.getAdtype()))
-                .andExpect(jsonPath("$.adtitle").value(adPolicy.getAdtitle()))
-                .andExpect(jsonPath("$.adformat").value(adPolicy.getAdformat()))
-                .andExpect(jsonPath("$.canskip").value(adPolicy.getCanskip()))
-                .andExpect(jsonPath("$.count").value(adPolicy.getCount()))
-                .andExpect(jsonPath("$.duration").value(adPolicy.getDuration()));
+                .andExpect(jsonPath("$.data.id").value(adPolicy.getId()))
+                .andExpect(jsonPath("$.data.guid").value(adPolicy.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(adPolicy.getOwnerid()))
+                .andExpect(jsonPath("$.data.adtype").value(adPolicy.getAdtype()))
+                .andExpect(jsonPath("$.data.adtitle").value(adPolicy.getAdtitle()))
+                .andExpect(jsonPath("$.data.adformat").value(adPolicy.getAdformat()))
+                .andExpect(jsonPath("$.data.canskip").value(adPolicy.getCanskip()))
+                .andExpect(jsonPath("$.data.count").value(adPolicy.getCount()))
+                .andExpect(jsonPath("$.data.duration").value(adPolicy.getDuration()));
     }
 
     @Test
@@ -363,15 +363,15 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/AdPolicy/adPoliciesByAdType/{adtype}", "sample ad type")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(adPolicy.getId()))
-                .andExpect(jsonPath("$[0].guid").value(adPolicy.getGuid()))
-                .andExpect(jsonPath("$[0].ownerid").value(adPolicy.getOwnerid()))
-                .andExpect(jsonPath("$[0].adtype").value(adPolicy.getAdtype()))
-                .andExpect(jsonPath("$[0].adtitle").value(adPolicy.getAdtitle()))
-                .andExpect(jsonPath("$[0].adformat").value(adPolicy.getAdformat()))
-                .andExpect(jsonPath("$[0].canskip").value(adPolicy.getCanskip()))
-                .andExpect(jsonPath("$[0].count").value(adPolicy.getCount()))
-                .andExpect(jsonPath("$[0].duration").value(adPolicy.getDuration()));
+                .andExpect(jsonPath("$.data[0].id").value(adPolicy.getId()))
+                .andExpect(jsonPath("$.data[0].guid").value(adPolicy.getGuid()))
+                .andExpect(jsonPath("$.data[0].ownerid").value(adPolicy.getOwnerid()))
+                .andExpect(jsonPath("$.data[0].adtype").value(adPolicy.getAdtype()))
+                .andExpect(jsonPath("$.data[0].adtitle").value(adPolicy.getAdtitle()))
+                .andExpect(jsonPath("$.data[0].adformat").value(adPolicy.getAdformat()))
+                .andExpect(jsonPath("$.data[0].canskip").value(adPolicy.getCanskip()))
+                .andExpect(jsonPath("$.data[0].count").value(adPolicy.getCount()))
+                .andExpect(jsonPath("$.data[0].duration").value(adPolicy.getDuration()));
     }
 
     @Test
@@ -381,7 +381,8 @@ public class MainControllerTest {
         mockMvc.perform(delete("/delivery/data/AdPolicy/deleteAdPolicy/{id}", 7)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string("AdPolicy object with ID 7 removed"));
+                .andExpect(jsonPath("$.data.data").value("AdPolicy object with ID 7 removed"));
+
 
     }
 
@@ -394,15 +395,15 @@ public class MainControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(adPolicy)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(adPolicy.getId()))
-                .andExpect(jsonPath("$.guid").value(adPolicy.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(adPolicy.getOwnerid()))
-                .andExpect(jsonPath("$.adtype").value(adPolicy.getAdtype()))
-                .andExpect(jsonPath("$.adtitle").value(adPolicy.getAdtitle()))
-                .andExpect(jsonPath("$.adformat").value(adPolicy.getAdformat()))
-                .andExpect(jsonPath("$.canskip").value(adPolicy.getCanskip()))
-                .andExpect(jsonPath("$.count").value(adPolicy.getCount()))
-                .andExpect(jsonPath("$.duration").value(adPolicy.getDuration()));
+                .andExpect(jsonPath("$.data.id").value(adPolicy.getId()))
+                .andExpect(jsonPath("$.data.guid").value(adPolicy.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(adPolicy.getOwnerid()))
+                .andExpect(jsonPath("$.data.adtype").value(adPolicy.getAdtype()))
+                .andExpect(jsonPath("$.data.adtitle").value(adPolicy.getAdtitle()))
+                .andExpect(jsonPath("$.data.adformat").value(adPolicy.getAdformat()))
+                .andExpect(jsonPath("$.data.canskip").value(adPolicy.getCanskip()))
+                .andExpect(jsonPath("$.data.count").value(adPolicy.getCount()))
+                .andExpect(jsonPath("$.data.duration").value(adPolicy.getDuration()));
 
     }
 
@@ -420,17 +421,17 @@ public class MainControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(restriction)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(restriction.getId()))
-                .andExpect(jsonPath("$.guid").value(restriction.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(restriction.getOwnerid()))
-                .andExpect(jsonPath("$.availabledate").value(availableDateStr))
-                .andExpect(jsonPath("$.expirationdate").value(expirationDateStr))
-                .andExpect(jsonPath("$.domainrestriction").value(restriction.getDomainrestriction()))
-                .andExpect(jsonPath("$.geolocationrestriction").value(restriction.getGeolocationrestriction()))
-                .andExpect(jsonPath("$.ipaddressrestriction").value(restriction.getIpaddressrestriction()))
-                .andExpect(jsonPath("$.useragentrestriction").value(restriction.getUseragentrestriction()))
-                .andExpect(jsonPath("$.requireauth").value(restriction.getRequireauth()))
-                .andExpect(jsonPath("$.maxconlimit").value(restriction.getMaxconlimit()));
+                .andExpect(jsonPath("$.data.id").value(restriction.getId()))
+                .andExpect(jsonPath("$.data.guid").value(restriction.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(restriction.getOwnerid()))
+                .andExpect(jsonPath("$.data.availabledate").value(availableDateStr))
+                .andExpect(jsonPath("$.data.expirationdate").value(expirationDateStr))
+                .andExpect(jsonPath("$.data.domainrestriction").value(restriction.getDomainrestriction()))
+                .andExpect(jsonPath("$.data.geolocationrestriction").value(restriction.getGeolocationrestriction()))
+                .andExpect(jsonPath("$.data.ipaddressrestriction").value(restriction.getIpaddressrestriction()))
+                .andExpect(jsonPath("$.data.useragentrestriction").value(restriction.getUseragentrestriction()))
+                .andExpect(jsonPath("$.data.requireauth").value(restriction.getRequireauth()))
+                .andExpect(jsonPath("$.data.maxconlimit").value(restriction.getMaxconlimit()));
 
     }
 
@@ -449,17 +450,17 @@ public class MainControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(Collections.singletonList(restriction))))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(restriction.getId()))
-                .andExpect(jsonPath("$[0].guid").value(restriction.getGuid()))
-                .andExpect(jsonPath("$[0].ownerid").value(restriction.getOwnerid()))
-                .andExpect(jsonPath("$[0].availabledate").value(availableDateStr))
-                .andExpect(jsonPath("$[0].expirationdate").value(expirationDateStr))
-                .andExpect(jsonPath("$[0].domainrestriction").value(restriction.getDomainrestriction()))
-                .andExpect(jsonPath("$[0].geolocationrestriction").value(restriction.getGeolocationrestriction()))
-                .andExpect(jsonPath("$[0].ipaddressrestriction").value(restriction.getIpaddressrestriction()))
-                .andExpect(jsonPath("$[0].useragentrestriction").value(restriction.getUseragentrestriction()))
-                .andExpect(jsonPath("$[0].requireauth").value(restriction.getRequireauth()))
-                .andExpect(jsonPath("$[0].maxconlimit").value(restriction.getMaxconlimit()));
+                .andExpect(jsonPath("$.data[0].id").value(restriction.getId()))
+                .andExpect(jsonPath("$.data[0].guid").value(restriction.getGuid()))
+                .andExpect(jsonPath("$.data[0].ownerid").value(restriction.getOwnerid()))
+                .andExpect(jsonPath("$.data[0].availabledate").value(availableDateStr))
+                .andExpect(jsonPath("$.data[0].expirationdate").value(expirationDateStr))
+                .andExpect(jsonPath("$.data[0].domainrestriction").value(restriction.getDomainrestriction()))
+                .andExpect(jsonPath("$.data[0].geolocationrestriction").value(restriction.getGeolocationrestriction()))
+                .andExpect(jsonPath("$.data[0].ipaddressrestriction").value(restriction.getIpaddressrestriction()))
+                .andExpect(jsonPath("$.data[0].useragentrestriction").value(restriction.getUseragentrestriction()))
+                .andExpect(jsonPath("$.data[0].requireauth").value(restriction.getRequireauth()))
+                .andExpect(jsonPath("$.data[0].maxconlimit").value(restriction.getMaxconlimit()));
 
     }
 
@@ -470,17 +471,17 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/Restriction/restrictions")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(restriction.getId()))
-                .andExpect(jsonPath("$[0].guid").value(restriction.getGuid()))
-                .andExpect(jsonPath("$[0].ownerid").value(restriction.getOwnerid()))
-                .andExpect(jsonPath("$[0].availabledate").value(availableDateStr))
-                .andExpect(jsonPath("$[0].expirationdate").value(expirationDateStr))
-                .andExpect(jsonPath("$[0].domainrestriction").value(restriction.getDomainrestriction()))
-                .andExpect(jsonPath("$[0].geolocationrestriction").value(restriction.getGeolocationrestriction()))
-                .andExpect(jsonPath("$[0].ipaddressrestriction").value(restriction.getIpaddressrestriction()))
-                .andExpect(jsonPath("$[0].useragentrestriction").value(restriction.getUseragentrestriction()))
-                .andExpect(jsonPath("$[0].requireauth").value(restriction.getRequireauth()))
-                .andExpect(jsonPath("$[0].maxconlimit").value(restriction.getMaxconlimit()));
+                .andExpect(jsonPath("$.data[0].id").value(restriction.getId()))
+                .andExpect(jsonPath("$.data[0].guid").value(restriction.getGuid()))
+                .andExpect(jsonPath("$.data[0].ownerid").value(restriction.getOwnerid()))
+                .andExpect(jsonPath("$.data[0].availabledate").value(availableDateStr))
+                .andExpect(jsonPath("$.data[0].expirationdate").value(expirationDateStr))
+                .andExpect(jsonPath("$.data[0].domainrestriction").value(restriction.getDomainrestriction()))
+                .andExpect(jsonPath("$.data[0].geolocationrestriction").value(restriction.getGeolocationrestriction()))
+                .andExpect(jsonPath("$.data[0].ipaddressrestriction").value(restriction.getIpaddressrestriction()))
+                .andExpect(jsonPath("$.data[0].useragentrestriction").value(restriction.getUseragentrestriction()))
+                .andExpect(jsonPath("$.data[0].requireauth").value(restriction.getRequireauth()))
+                .andExpect(jsonPath("$.data[0].maxconlimit").value(restriction.getMaxconlimit()));
 
 
 
@@ -493,17 +494,17 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/Restriction/restrictionsById/{id}", 7)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(restriction.getId()))
-                .andExpect(jsonPath("$.guid").value(restriction.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(restriction.getOwnerid()))
-                .andExpect(jsonPath("$.availabledate").value(availableDateStr))
-                .andExpect(jsonPath("$.expirationdate").value(expirationDateStr))
-                .andExpect(jsonPath("$.domainrestriction").value(restriction.getDomainrestriction()))
-                .andExpect(jsonPath("$.geolocationrestriction").value(restriction.getGeolocationrestriction()))
-                .andExpect(jsonPath("$.ipaddressrestriction").value(restriction.getIpaddressrestriction()))
-                .andExpect(jsonPath("$.useragentrestriction").value(restriction.getUseragentrestriction()))
-                .andExpect(jsonPath("$.requireauth").value(restriction.getRequireauth()))
-                .andExpect(jsonPath("$.maxconlimit").value(restriction.getMaxconlimit()));
+                .andExpect(jsonPath("$.data.id").value(restriction.getId()))
+                .andExpect(jsonPath("$.data.guid").value(restriction.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(restriction.getOwnerid()))
+                .andExpect(jsonPath("$.data.availabledate").value(availableDateStr))
+                .andExpect(jsonPath("$.data.expirationdate").value(expirationDateStr))
+                .andExpect(jsonPath("$.data.domainrestriction").value(restriction.getDomainrestriction()))
+                .andExpect(jsonPath("$.data.geolocationrestriction").value(restriction.getGeolocationrestriction()))
+                .andExpect(jsonPath("$.data.ipaddressrestriction").value(restriction.getIpaddressrestriction()))
+                .andExpect(jsonPath("$.data.useragentrestriction").value(restriction.getUseragentrestriction()))
+                .andExpect(jsonPath("$.data.requireauth").value(restriction.getRequireauth()))
+                .andExpect(jsonPath("$.data.maxconlimit").value(restriction.getMaxconlimit()));
     }
 
     @Test
@@ -513,17 +514,17 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/Restriction/restrictionsByGuid/{guid}", "sample GUID")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(restriction.getId()))
-                .andExpect(jsonPath("$.guid").value(restriction.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(restriction.getOwnerid()))
-                .andExpect(jsonPath("$.availabledate").value(availableDateStr))
-                .andExpect(jsonPath("$.expirationdate").value(expirationDateStr))
-                .andExpect(jsonPath("$.domainrestriction").value(restriction.getDomainrestriction()))
-                .andExpect(jsonPath("$.geolocationrestriction").value(restriction.getGeolocationrestriction()))
-                .andExpect(jsonPath("$.ipaddressrestriction").value(restriction.getIpaddressrestriction()))
-                .andExpect(jsonPath("$.useragentrestriction").value(restriction.getUseragentrestriction()))
-                .andExpect(jsonPath("$.requireauth").value(restriction.getRequireauth()))
-                .andExpect(jsonPath("$.maxconlimit").value(restriction.getMaxconlimit()));
+                .andExpect(jsonPath("$.data.id").value(restriction.getId()))
+                .andExpect(jsonPath("$.data.guid").value(restriction.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(restriction.getOwnerid()))
+                .andExpect(jsonPath("$.data.availabledate").value(availableDateStr))
+                .andExpect(jsonPath("$.data.expirationdate").value(expirationDateStr))
+                .andExpect(jsonPath("$.data.domainrestriction").value(restriction.getDomainrestriction()))
+                .andExpect(jsonPath("$.data.geolocationrestriction").value(restriction.getGeolocationrestriction()))
+                .andExpect(jsonPath("$.data.ipaddressrestriction").value(restriction.getIpaddressrestriction()))
+                .andExpect(jsonPath("$.data.useragentrestriction").value(restriction.getUseragentrestriction()))
+                .andExpect(jsonPath("$.data.requireauth").value(restriction.getRequireauth()))
+                .andExpect(jsonPath("$.data.maxconlimit").value(restriction.getMaxconlimit()));
 
     }
 
@@ -534,17 +535,17 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/Restriction/restrictionsByOwnerid/{ownerid}", 7L)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(restriction.getId()))
-                .andExpect(jsonPath("$.guid").value(restriction.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(restriction.getOwnerid()))
-                .andExpect(jsonPath("$.availabledate").value(availableDateStr))
-                .andExpect(jsonPath("$.expirationdate").value(expirationDateStr))
-                .andExpect(jsonPath("$.domainrestriction").value(restriction.getDomainrestriction()))
-                .andExpect(jsonPath("$.geolocationrestriction").value(restriction.getGeolocationrestriction()))
-                .andExpect(jsonPath("$.ipaddressrestriction").value(restriction.getIpaddressrestriction()))
-                .andExpect(jsonPath("$.useragentrestriction").value(restriction.getUseragentrestriction()))
-                .andExpect(jsonPath("$.requireauth").value(restriction.getRequireauth()))
-                .andExpect(jsonPath("$.maxconlimit").value(restriction.getMaxconlimit()));
+                .andExpect(jsonPath("$.data.id").value(restriction.getId()))
+                .andExpect(jsonPath("$.data.guid").value(restriction.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(restriction.getOwnerid()))
+                .andExpect(jsonPath("$.data.availabledate").value(availableDateStr))
+                .andExpect(jsonPath("$.data.expirationdate").value(expirationDateStr))
+                .andExpect(jsonPath("$.data.domainrestriction").value(restriction.getDomainrestriction()))
+                .andExpect(jsonPath("$.data.geolocationrestriction").value(restriction.getGeolocationrestriction()))
+                .andExpect(jsonPath("$.data.ipaddressrestriction").value(restriction.getIpaddressrestriction()))
+                .andExpect(jsonPath("$.data.useragentrestriction").value(restriction.getUseragentrestriction()))
+                .andExpect(jsonPath("$.data.requireauth").value(restriction.getRequireauth()))
+                .andExpect(jsonPath("$.data.maxconlimit").value(restriction.getMaxconlimit()));
     }
 
     @Test
@@ -554,7 +555,7 @@ public class MainControllerTest {
         mockMvc.perform(delete("/delivery/data/Restriction/deleteRestriction/{id}", 7)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Restriction object with ID 7 removed"));
+                .andExpect(jsonPath("$.data.data").value("Restriction object with ID 7 removed"));
 
     }
 
@@ -567,17 +568,17 @@ public class MainControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(restriction)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(restriction.getId()))
-                .andExpect(jsonPath("$.guid").value(restriction.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(restriction.getOwnerid()))
-                .andExpect(jsonPath("$.availabledate").value(availableDateStr))
-                .andExpect(jsonPath("$.expirationdate").value(expirationDateStr))
-                .andExpect(jsonPath("$.domainrestriction").value(restriction.getDomainrestriction()))
-                .andExpect(jsonPath("$.geolocationrestriction").value(restriction.getGeolocationrestriction()))
-                .andExpect(jsonPath("$.ipaddressrestriction").value(restriction.getIpaddressrestriction()))
-                .andExpect(jsonPath("$.useragentrestriction").value(restriction.getUseragentrestriction()))
-                .andExpect(jsonPath("$.requireauth").value(restriction.getRequireauth()))
-                .andExpect(jsonPath("$.maxconlimit").value(restriction.getMaxconlimit()));
+                .andExpect(jsonPath("$.data.id").value(restriction.getId()))
+                .andExpect(jsonPath("$.data.guid").value(restriction.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(restriction.getOwnerid()))
+                .andExpect(jsonPath("$.data.availabledate").value(availableDateStr))
+                .andExpect(jsonPath("$.data.expirationdate").value(expirationDateStr))
+                .andExpect(jsonPath("$.data.domainrestriction").value(restriction.getDomainrestriction()))
+                .andExpect(jsonPath("$.data.geolocationrestriction").value(restriction.getGeolocationrestriction()))
+                .andExpect(jsonPath("$.data.ipaddressrestriction").value(restriction.getIpaddressrestriction()))
+                .andExpect(jsonPath("$.data.useragentrestriction").value(restriction.getUseragentrestriction()))
+                .andExpect(jsonPath("$.data.requireauth").value(restriction.getRequireauth()))
+                .andExpect(jsonPath("$.data.maxconlimit").value(restriction.getMaxconlimit()));
 
 
     }
@@ -598,17 +599,17 @@ public class MainControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(userAgent)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(userAgent.getId()))
-                .andExpect(jsonPath("$.guid").value(userAgent.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(userAgent.getOwnerid()))
-                .andExpect(jsonPath("$.format").value(userAgent.getFormat()))
-                .andExpect(jsonPath("$.maxBitRate").value(userAgent.getMaxBitRate()))
-                .andExpect(jsonPath("$.maxHeight").value(userAgent.getMaxHeight()))
-                .andExpect(jsonPath("$.maxWidth").value(userAgent.getMaxWidth()))
-                .andExpect(jsonPath("$.minBitRate").value(userAgent.getMinBitRate()))
-                .andExpect(jsonPath("$.minHeight").value(userAgent.getMinHeight()))
-                .andExpect(jsonPath("$.minWidth").value(userAgent.getMinWidth()))
-                .andExpect(jsonPath("$.startingBitrate").value(userAgent.getStartingBitrate()));
+                .andExpect(jsonPath("$.data.id").value(userAgent.getId()))
+                .andExpect(jsonPath("$.data.guid").value(userAgent.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(userAgent.getOwnerid()))
+                .andExpect(jsonPath("$.data.format").value(userAgent.getFormat()))
+                .andExpect(jsonPath("$.data.maxBitRate").value(userAgent.getMaxBitRate()))
+                .andExpect(jsonPath("$.data.maxHeight").value(userAgent.getMaxHeight()))
+                .andExpect(jsonPath("$.data.maxWidth").value(userAgent.getMaxWidth()))
+                .andExpect(jsonPath("$.data.minBitRate").value(userAgent.getMinBitRate()))
+                .andExpect(jsonPath("$.data.minHeight").value(userAgent.getMinHeight()))
+                .andExpect(jsonPath("$.data.minWidth").value(userAgent.getMinWidth()))
+                .andExpect(jsonPath("$.data.startingBitrate").value(userAgent.getStartingBitrate()));
 
 
     }
@@ -622,17 +623,17 @@ public class MainControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(Collections.singletonList(userAgent))))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(userAgent.getId()))
-                .andExpect(jsonPath("$[0].guid").value(userAgent.getGuid()))
-                .andExpect(jsonPath("$[0].ownerid").value(userAgent.getOwnerid()))
-                .andExpect(jsonPath("$[0].format").value(userAgent.getFormat()))
-                .andExpect(jsonPath("$[0].maxBitRate").value(userAgent.getMaxBitRate()))
-                .andExpect(jsonPath("$[0].maxHeight").value(userAgent.getMaxHeight()))
-                .andExpect(jsonPath("$[0].maxWidth").value(userAgent.getMaxWidth()))
-                .andExpect(jsonPath("$[0].minBitRate").value(userAgent.getMinBitRate()))
-                .andExpect(jsonPath("$[0].minHeight").value(userAgent.getMinHeight()))
-                .andExpect(jsonPath("$[0].minWidth").value(userAgent.getMinWidth()))
-                .andExpect(jsonPath("$[0].startingBitrate").value(userAgent.getStartingBitrate()));
+                .andExpect(jsonPath("$.data[0].id").value(userAgent.getId()))
+                .andExpect(jsonPath("$.data[0].guid").value(userAgent.getGuid()))
+                .andExpect(jsonPath("$.data[0].ownerid").value(userAgent.getOwnerid()))
+                .andExpect(jsonPath("$.data[0].format").value(userAgent.getFormat()))
+                .andExpect(jsonPath("$.data[0].maxBitRate").value(userAgent.getMaxBitRate()))
+                .andExpect(jsonPath("$.data[0].maxHeight").value(userAgent.getMaxHeight()))
+                .andExpect(jsonPath("$.data[0].maxWidth").value(userAgent.getMaxWidth()))
+                .andExpect(jsonPath("$.data[0].minBitRate").value(userAgent.getMinBitRate()))
+                .andExpect(jsonPath("$.data[0].minHeight").value(userAgent.getMinHeight()))
+                .andExpect(jsonPath("$.data[0].minWidth").value(userAgent.getMinWidth()))
+                .andExpect(jsonPath("$.data[0].startingBitrate").value(userAgent.getStartingBitrate()));
 
 
     }
@@ -644,17 +645,17 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/UserAgent/userAgents")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(userAgent.getId()))
-                .andExpect(jsonPath("$[0].guid").value(userAgent.getGuid()))
-                .andExpect(jsonPath("$[0].ownerid").value(userAgent.getOwnerid()))
-                .andExpect(jsonPath("$[0].format").value(userAgent.getFormat()))
-                .andExpect(jsonPath("$[0].maxBitRate").value(userAgent.getMaxBitRate()))
-                .andExpect(jsonPath("$[0].maxHeight").value(userAgent.getMaxHeight()))
-                .andExpect(jsonPath("$[0].maxWidth").value(userAgent.getMaxWidth()))
-                .andExpect(jsonPath("$[0].minBitRate").value(userAgent.getMinBitRate()))
-                .andExpect(jsonPath("$[0].minHeight").value(userAgent.getMinHeight()))
-                .andExpect(jsonPath("$[0].minWidth").value(userAgent.getMinWidth()))
-                .andExpect(jsonPath("$[0].startingBitrate").value(userAgent.getStartingBitrate()));
+                .andExpect(jsonPath("$.data[0].id").value(userAgent.getId()))
+                .andExpect(jsonPath("$.data[0].guid").value(userAgent.getGuid()))
+                .andExpect(jsonPath("$.data[0].ownerid").value(userAgent.getOwnerid()))
+                .andExpect(jsonPath("$.data[0].format").value(userAgent.getFormat()))
+                .andExpect(jsonPath("$.data[0].maxBitRate").value(userAgent.getMaxBitRate()))
+                .andExpect(jsonPath("$.data[0].maxHeight").value(userAgent.getMaxHeight()))
+                .andExpect(jsonPath("$.data[0].maxWidth").value(userAgent.getMaxWidth()))
+                .andExpect(jsonPath("$.data[0].minBitRate").value(userAgent.getMinBitRate()))
+                .andExpect(jsonPath("$.data[0].minHeight").value(userAgent.getMinHeight()))
+                .andExpect(jsonPath("$.data[0].minWidth").value(userAgent.getMinWidth()))
+                .andExpect(jsonPath("$.data[0].startingBitrate").value(userAgent.getStartingBitrate()));
 
 
     }
@@ -666,17 +667,17 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/UserAgent/userAgentsById/{id}", 7)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(userAgent.getId()))
-                .andExpect(jsonPath("$.guid").value(userAgent.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(userAgent.getOwnerid()))
-                .andExpect(jsonPath("$.format").value(userAgent.getFormat()))
-                .andExpect(jsonPath("$.maxBitRate").value(userAgent.getMaxBitRate()))
-                .andExpect(jsonPath("$.maxHeight").value(userAgent.getMaxHeight()))
-                .andExpect(jsonPath("$.maxWidth").value(userAgent.getMaxWidth()))
-                .andExpect(jsonPath("$.minBitRate").value(userAgent.getMinBitRate()))
-                .andExpect(jsonPath("$.minHeight").value(userAgent.getMinHeight()))
-                .andExpect(jsonPath("$.minWidth").value(userAgent.getMinWidth()))
-                .andExpect(jsonPath("$.startingBitrate").value(userAgent.getStartingBitrate()));
+                .andExpect(jsonPath("$.data.id").value(userAgent.getId()))
+                .andExpect(jsonPath("$.data.guid").value(userAgent.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(userAgent.getOwnerid()))
+                .andExpect(jsonPath("$.data.format").value(userAgent.getFormat()))
+                .andExpect(jsonPath("$.data.maxBitRate").value(userAgent.getMaxBitRate()))
+                .andExpect(jsonPath("$.data.maxHeight").value(userAgent.getMaxHeight()))
+                .andExpect(jsonPath("$.data.maxWidth").value(userAgent.getMaxWidth()))
+                .andExpect(jsonPath("$.data.minBitRate").value(userAgent.getMinBitRate()))
+                .andExpect(jsonPath("$.data.minHeight").value(userAgent.getMinHeight()))
+                .andExpect(jsonPath("$.data.minWidth").value(userAgent.getMinWidth()))
+                .andExpect(jsonPath("$.data.startingBitrate").value(userAgent.getStartingBitrate()));
 
 
     }
@@ -688,17 +689,17 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/UserAgent/userAgentsByGuid/{guid}", "sample GUID")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(userAgent.getId()))
-                .andExpect(jsonPath("$.guid").value(userAgent.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(userAgent.getOwnerid()))
-                .andExpect(jsonPath("$.format").value(userAgent.getFormat()))
-                .andExpect(jsonPath("$.maxBitRate").value(userAgent.getMaxBitRate()))
-                .andExpect(jsonPath("$.maxHeight").value(userAgent.getMaxHeight()))
-                .andExpect(jsonPath("$.maxWidth").value(userAgent.getMaxWidth()))
-                .andExpect(jsonPath("$.minBitRate").value(userAgent.getMinBitRate()))
-                .andExpect(jsonPath("$.minHeight").value(userAgent.getMinHeight()))
-                .andExpect(jsonPath("$.minWidth").value(userAgent.getMinWidth()))
-                .andExpect(jsonPath("$.startingBitrate").value(userAgent.getStartingBitrate()));
+                .andExpect(jsonPath("$.data.id").value(userAgent.getId()))
+                .andExpect(jsonPath("$.data.guid").value(userAgent.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(userAgent.getOwnerid()))
+                .andExpect(jsonPath("$.data.format").value(userAgent.getFormat()))
+                .andExpect(jsonPath("$.data.maxBitRate").value(userAgent.getMaxBitRate()))
+                .andExpect(jsonPath("$.data.maxHeight").value(userAgent.getMaxHeight()))
+                .andExpect(jsonPath("$.data.maxWidth").value(userAgent.getMaxWidth()))
+                .andExpect(jsonPath("$.data.minBitRate").value(userAgent.getMinBitRate()))
+                .andExpect(jsonPath("$.data.minHeight").value(userAgent.getMinHeight()))
+                .andExpect(jsonPath("$.data.minWidth").value(userAgent.getMinWidth()))
+                .andExpect(jsonPath("$.data.startingBitrate").value(userAgent.getStartingBitrate()));
 
 
     }
@@ -710,17 +711,17 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/UserAgent/userAgentsByOwnerid/{ownerid}", 7)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(userAgent.getId()))
-                .andExpect(jsonPath("$.guid").value(userAgent.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(userAgent.getOwnerid()))
-                .andExpect(jsonPath("$.format").value(userAgent.getFormat()))
-                .andExpect(jsonPath("$.maxBitRate").value(userAgent.getMaxBitRate()))
-                .andExpect(jsonPath("$.maxHeight").value(userAgent.getMaxHeight()))
-                .andExpect(jsonPath("$.maxWidth").value(userAgent.getMaxWidth()))
-                .andExpect(jsonPath("$.minBitRate").value(userAgent.getMinBitRate()))
-                .andExpect(jsonPath("$.minHeight").value(userAgent.getMinHeight()))
-                .andExpect(jsonPath("$.minWidth").value(userAgent.getMinWidth()))
-                .andExpect(jsonPath("$.startingBitrate").value(userAgent.getStartingBitrate()));
+                .andExpect(jsonPath("$.data.id").value(userAgent.getId()))
+                .andExpect(jsonPath("$.data.guid").value(userAgent.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(userAgent.getOwnerid()))
+                .andExpect(jsonPath("$.data.format").value(userAgent.getFormat()))
+                .andExpect(jsonPath("$.data.maxBitRate").value(userAgent.getMaxBitRate()))
+                .andExpect(jsonPath("$.data.maxHeight").value(userAgent.getMaxHeight()))
+                .andExpect(jsonPath("$.data.maxWidth").value(userAgent.getMaxWidth()))
+                .andExpect(jsonPath("$.data.minBitRate").value(userAgent.getMinBitRate()))
+                .andExpect(jsonPath("$.data.minHeight").value(userAgent.getMinHeight()))
+                .andExpect(jsonPath("$.data.minWidth").value(userAgent.getMinWidth()))
+                .andExpect(jsonPath("$.data.startingBitrate").value(userAgent.getStartingBitrate()));
 
 
     }
@@ -732,17 +733,17 @@ public class MainControllerTest {
         mockMvc.perform(get("/delivery/data/UserAgent/userAgentsByStartingBitrate/{bitrate}", 0)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id").value(userAgent.getId()))
-                .andExpect(jsonPath("$[0].guid").value(userAgent.getGuid()))
-                .andExpect(jsonPath("$[0].ownerid").value(userAgent.getOwnerid()))
-                .andExpect(jsonPath("$[0].format").value(userAgent.getFormat()))
-                .andExpect(jsonPath("$[0].maxBitRate").value(userAgent.getMaxBitRate()))
-                .andExpect(jsonPath("$[0].maxHeight").value(userAgent.getMaxHeight()))
-                .andExpect(jsonPath("$[0].maxWidth").value(userAgent.getMaxWidth()))
-                .andExpect(jsonPath("$[0].minBitRate").value(userAgent.getMinBitRate()))
-                .andExpect(jsonPath("$[0].minHeight").value(userAgent.getMinHeight()))
-                .andExpect(jsonPath("$[0].minWidth").value(userAgent.getMinWidth()))
-                .andExpect(jsonPath("$[0].startingBitrate").value(userAgent.getStartingBitrate()));
+                .andExpect(jsonPath("$.data[0].id").value(userAgent.getId()))
+                .andExpect(jsonPath("$.data[0].guid").value(userAgent.getGuid()))
+                .andExpect(jsonPath("$.data[0].ownerid").value(userAgent.getOwnerid()))
+                .andExpect(jsonPath("$.data[0].format").value(userAgent.getFormat()))
+                .andExpect(jsonPath("$.data[0].maxBitRate").value(userAgent.getMaxBitRate()))
+                .andExpect(jsonPath("$.data[0].maxHeight").value(userAgent.getMaxHeight()))
+                .andExpect(jsonPath("$.data[0].maxWidth").value(userAgent.getMaxWidth()))
+                .andExpect(jsonPath("$.data[0].minBitRate").value(userAgent.getMinBitRate()))
+                .andExpect(jsonPath("$.data[0].minHeight").value(userAgent.getMinHeight()))
+                .andExpect(jsonPath("$.data[0].minWidth").value(userAgent.getMinWidth()))
+                .andExpect(jsonPath("$.data[0].startingBitrate").value(userAgent.getStartingBitrate()));
 
 
     }
@@ -754,7 +755,7 @@ public class MainControllerTest {
         mockMvc.perform(delete("/delivery/data/UserAgent/deleteUserAgent/{id}", 7)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string("UserAgent object with ID 7 removed"));
+                .andExpect(jsonPath("$.data.data").value("UserAgent object with ID 7 removed"));
 
     }
 
@@ -767,17 +768,17 @@ public class MainControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(userAgent)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(userAgent.getId()))
-                .andExpect(jsonPath("$.guid").value(userAgent.getGuid()))
-                .andExpect(jsonPath("$.ownerid").value(userAgent.getOwnerid()))
-                .andExpect(jsonPath("$.format").value(userAgent.getFormat()))
-                .andExpect(jsonPath("$.maxBitRate").value(userAgent.getMaxBitRate()))
-                .andExpect(jsonPath("$.maxHeight").value(userAgent.getMaxHeight()))
-                .andExpect(jsonPath("$.maxWidth").value(userAgent.getMaxWidth()))
-                .andExpect(jsonPath("$.minBitRate").value(userAgent.getMinBitRate()))
-                .andExpect(jsonPath("$.minHeight").value(userAgent.getMinHeight()))
-                .andExpect(jsonPath("$.minWidth").value(userAgent.getMinWidth()))
-                .andExpect(jsonPath("$.startingBitrate").value(userAgent.getStartingBitrate()));
+                .andExpect(jsonPath("$.data.id").value(userAgent.getId()))
+                .andExpect(jsonPath("$.data.guid").value(userAgent.getGuid()))
+                .andExpect(jsonPath("$.data.ownerid").value(userAgent.getOwnerid()))
+                .andExpect(jsonPath("$.data.format").value(userAgent.getFormat()))
+                .andExpect(jsonPath("$.data.maxBitRate").value(userAgent.getMaxBitRate()))
+                .andExpect(jsonPath("$.data.maxHeight").value(userAgent.getMaxHeight()))
+                .andExpect(jsonPath("$.data.maxWidth").value(userAgent.getMaxWidth()))
+                .andExpect(jsonPath("$.data.minBitRate").value(userAgent.getMinBitRate()))
+                .andExpect(jsonPath("$.data.minHeight").value(userAgent.getMinHeight()))
+                .andExpect(jsonPath("$.data.minWidth").value(userAgent.getMinWidth()))
+                .andExpect(jsonPath("$.data.startingBitrate").value(userAgent.getStartingBitrate()));
 
 
     }

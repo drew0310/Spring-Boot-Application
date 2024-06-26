@@ -41,16 +41,16 @@ public class RestExceptionHandlerTest {
         doThrow(new ObjectNotFoundException("Object not found")).when(accountService).getAccountById(1004);
         mockMvc.perform(get("/delivery/data/AccountSettings/accountsById/{id}", 1004))
                 .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.statusCode").value("404"))
-                .andExpect(jsonPath("$.errorMessage").value("Object not found"));
+                .andExpect(jsonPath("$.data.statusCode").value("404"))
+                .andExpect(jsonPath("$.data.errorMessage").value("Object not found"));
     }
 
     @Test
     public void testHandleHttpRequestMethodNotSupportedException() throws Exception {
         mockMvc.perform(delete("/delivery/data/Restriction/updateRestriction", 1001))
                 .andExpect(status().isMethodNotAllowed())
-                .andExpect(jsonPath("$.statusCode").value("405"))
-                .andExpect(jsonPath("$.errorMessage").value("Request method 'DELETE' is not supported for this URL endpoint"));
+                .andExpect(jsonPath("$.data.statusCode").value("405"))
+                .andExpect(jsonPath("$.data.errorMessage").value("Request method 'DELETE' is not supported for this URL endpoint"));
     }
 
     @Test
@@ -59,15 +59,15 @@ public class RestExceptionHandlerTest {
 
         mockMvc.perform(get("/delivery/data/UserAgent/userAgentsById/{id}", 1007))
                 .andExpect(status().isInternalServerError())
-                .andExpect(jsonPath("$.statusCode").value("500"))
-                .andExpect(jsonPath("$.errorMessage").value("Null object (or) dependency not injected properly: Test null pointer exception"));
+                .andExpect(jsonPath("$.data.statusCode").value("500"))
+                .andExpect(jsonPath("$.data.errorMessage").value("Null object (or) dependency not injected properly: Test null pointer exception"));
     }
 
     @Test
     public void testHandleNoHandlerFoundException() throws Exception {
         mockMvc.perform(post("/delivery/AdPolicy/addAdPolicy"))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.statusCode").value("400"))
-                .andExpect(jsonPath("$.errorMessage").value("Invalid URL: no handler found for POST /delivery/AdPolicy/addAdPolicy"));
+                .andExpect(jsonPath("$.data.statusCode").value("400"))
+                .andExpect(jsonPath("$.data.errorMessage").value("Invalid URL: no handler found for POST /delivery/AdPolicy/addAdPolicy"));
     }
 }

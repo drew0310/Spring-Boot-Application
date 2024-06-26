@@ -139,9 +139,11 @@ public class MainController {
     }
 
     @DeleteMapping("/AdPolicy/deleteAdPolicy/{id}")
-    public String deleteAdPolicy(@PathVariable int id) throws ObjectNotFoundException {
+    public ApiResponse<String> deleteAdPolicy(@PathVariable int id) throws ObjectNotFoundException {
         logger.debug("Received request to delete AdPolicy object with ID "+id);
-        return adservice.deleteAdPolicy(id);
+        String message = adservice.deleteAdPolicy(id);
+        String cid = MDC.get("CID");
+        return new ApiResponse<>(cid, message);
     }
 
     @PutMapping("/AdPolicy/updateAdPolicy")
@@ -188,9 +190,11 @@ public class MainController {
     }
 
     @DeleteMapping("/Restriction/deleteRestriction/{id}")
-    public String deleteRestriction(@PathVariable int id) throws ObjectNotFoundException {
+    public ApiResponse<String> deleteRestriction(@PathVariable int id) throws ObjectNotFoundException {
         logger.debug("Received request to delete Restriction object with ID "+id);
-        return restriction.deleteRestriction(id);
+        String message = restriction.deleteRestriction(id);
+        String cid = MDC.get("CID");
+        return new ApiResponse<>(cid, message);
     }
 
     @PutMapping("/Restriction/updateRestriction")
@@ -244,9 +248,11 @@ public class MainController {
     }
 
     @DeleteMapping("/UserAgent/deleteUserAgent/{id}")
-    public String deleteUserAgent(@PathVariable int id) throws ObjectNotFoundException {
+    public ApiResponse<String> deleteUserAgent(@PathVariable int id) throws ObjectNotFoundException {
         logger.debug("Received request to delete UserAgent object with ID "+id);
-        return userservice.deleteUserAgent(id);
+        String message = userservice.deleteUserAgent(id);
+        String cid = MDC.get("CID");
+        return new ApiResponse<>(cid, message);
     }
 
     @PutMapping("/UserAgent/updateUserAgent")
