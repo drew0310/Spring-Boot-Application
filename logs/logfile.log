@@ -1,0 +1,125 @@
+2024-06-25 14:51:30.648 [http-nio-8080-exec-5] DEBUG c.a.delds.controller.MainController - CID:ea6131da-269b-4194-8879-de47188f1c6a Received request to add new Account object 
+2024-06-25 14:51:30.649 [http-nio-8080-exec-5] DEBUG c.a.delds.service.AccountService - CID:ea6131da-269b-4194-8879-de47188f1c6a Status code 200 - New Account object saved 
+2024-06-25 14:52:39.271 [http-nio-8080-exec-8] DEBUG c.a.delds.controller.MainController - CID:06480fdb-d206-4a47-9f40-d1e3cc4e3254 Received request to update Account object with ID 1004 
+2024-06-25 14:52:39.277 [http-nio-8080-exec-8] DEBUG c.a.delds.service.AccountService - CID:06480fdb-d206-4a47-9f40-d1e3cc4e3254 Status code 200 - Account object with ID 1004 updated 
+2024-06-25 14:53:00.425 [http-nio-8080-exec-9] DEBUG c.a.delds.controller.MainController - CID:2594ae12-751b-4c11-81cd-4ef37528d56a Received request to delete Account object with ID 1004 
+2024-06-25 14:53:00.432 [http-nio-8080-exec-9] DEBUG c.a.delds.service.AccountService - CID:2594ae12-751b-4c11-81cd-4ef37528d56a Status code 200 - Account object with ID 1004 removed 
+2024-06-25 14:53:00.432 [http-nio-8080-exec-9] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - CID: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.ClassCastException: class com.andrew.delds.model.ApiResponse cannot be cast to class java.lang.String (com.andrew.delds.model.ApiResponse is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')] with root cause 
+java.lang.ClassCastException: class com.andrew.delds.model.ApiResponse cannot be cast to class java.lang.String (com.andrew.delds.model.ApiResponse is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')
+	at org.springframework.http.converter.StringHttpMessageConverter.addDefaultHeaders(StringHttpMessageConverter.java:44)
+	at org.springframework.http.converter.AbstractHttpMessageConverter.write(AbstractHttpMessageConverter.java:210)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:300)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:190)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:596)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.andrew.delds.filter.CIDFilter.doFilterInternal(CIDFilter.java:24)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-25 14:55:58.244 [main] INFO  com.andrew.delds.DeldsApplication - CID: Starting DeldsApplication using Java 21.0.2 with PID 39472 (C:\Users\aramac618\Downloads\delds\delds\target\classes started by aramac618 in C:\Users\aramac618\Downloads\delds) 
+2024-06-25 14:55:58.245 [main] DEBUG com.andrew.delds.DeldsApplication - CID: Running with Spring Boot v3.2.4, Spring v6.1.5 
+2024-06-25 14:55:58.246 [main] INFO  com.andrew.delds.DeldsApplication - CID: No active profile set, falling back to 1 default profile: "default" 
+2024-06-25 14:55:59.326 [main] DEBUG com.andrew.delds.filter.CIDFilter - CID: Filter 'CIDFilter' configured for use 
+2024-06-25 14:56:01.407 [main] INFO  com.andrew.delds.DeldsApplication - CID: Started DeldsApplication in 3.401 seconds (process running for 3.766) 
+2024-06-25 14:56:13.720 [http-nio-8080-exec-2] DEBUG c.a.delds.controller.MainController - CID:f4c38aef-c96c-4914-85a6-a1d92e554061 Received request to add new Account object 
+2024-06-25 14:56:13.720 [http-nio-8080-exec-2] DEBUG c.a.delds.service.AccountService - CID:f4c38aef-c96c-4914-85a6-a1d92e554061 Status code 200 - New Account object saved 
+2024-06-25 14:56:48.404 [http-nio-8080-exec-3] DEBUG c.a.delds.controller.MainController - CID:1b2ae1e6-73fb-40a9-aa47-8992911566ca Received request to fetch Account object with ID 1004 
+2024-06-25 14:56:48.412 [http-nio-8080-exec-3] DEBUG c.a.delds.service.AccountService - CID:1b2ae1e6-73fb-40a9-aa47-8992911566ca Status code 200 - Fetched Account object with ID 1004 
+2024-06-25 14:59:22.706 [main] INFO  com.andrew.delds.DeldsApplication - CID: Starting DeldsApplication using Java 21.0.2 with PID 4956 (C:\Users\aramac618\Downloads\delds\delds\target\classes started by aramac618 in C:\Users\aramac618\Downloads\delds) 
+2024-06-25 14:59:22.708 [main] DEBUG com.andrew.delds.DeldsApplication - CID: Running with Spring Boot v3.2.4, Spring v6.1.5 
+2024-06-25 14:59:22.709 [main] INFO  com.andrew.delds.DeldsApplication - CID: No active profile set, falling back to 1 default profile: "default" 
+2024-06-25 14:59:23.787 [main] DEBUG com.andrew.delds.filter.CIDFilter - CID: Filter 'CIDFilter' configured for use 
+2024-06-25 14:59:25.894 [main] INFO  com.andrew.delds.DeldsApplication - CID: Started DeldsApplication in 3.427 seconds (process running for 3.827) 
+2024-06-25 14:59:35.668 [http-nio-8080-exec-1] DEBUG c.a.delds.controller.MainController - CID:3dd35163-c619-4e1f-870a-6c1bbc72475f Received request to fetch Account object with ID 1003 
+2024-06-25 14:59:35.707 [http-nio-8080-exec-1] DEBUG c.a.delds.service.AccountService - CID:3dd35163-c619-4e1f-870a-6c1bbc72475f Status code 200 - Fetched Account object with ID 1003 
+2024-06-25 14:59:51.522 [http-nio-8080-exec-3] DEBUG c.a.delds.controller.MainController - CID:886bcefb-9838-41fc-ba41-391d6229e711 Received request to fetch Account object with ID 1006 
+2024-06-25 14:59:51.527 [http-nio-8080-exec-3] ERROR c.a.d.exception.RestExceptionHandler - CID:886bcefb-9838-41fc-ba41-391d6229e711 Status code 404 - Account object with ID 1006 not found 
+2024-06-25 15:09:36.751 [main] INFO  com.andrew.delds.DeldsApplication - CID: Starting DeldsApplication using Java 21.0.2 with PID 35680 (C:\Users\aramac618\Downloads\delds\delds\target\classes started by aramac618 in C:\Users\aramac618\Downloads\delds) 
+2024-06-25 15:09:36.752 [main] DEBUG com.andrew.delds.DeldsApplication - CID: Running with Spring Boot v3.2.4, Spring v6.1.5 
+2024-06-25 15:09:36.753 [main] INFO  com.andrew.delds.DeldsApplication - CID: No active profile set, falling back to 1 default profile: "default" 
+2024-06-25 15:09:37.913 [main] DEBUG com.andrew.delds.filter.CIDFilter - CID: Filter 'CIDFilter' configured for use 
+2024-06-25 15:09:39.938 [main] INFO  com.andrew.delds.DeldsApplication - CID: Started DeldsApplication in 3.455 seconds (process running for 3.863) 
+2024-06-25 15:09:55.232 [http-nio-8080-exec-1] DEBUG c.a.delds.controller.MainController - CID:3c551c5e-76ec-45bd-ad10-530e4cd65e55 Received request to delete Account object with ID 1004 
+2024-06-25 15:09:55.289 [http-nio-8080-exec-1] DEBUG c.a.delds.service.AccountService - CID:3c551c5e-76ec-45bd-ad10-530e4cd65e55 Status code 200 - Account object with ID 1004 removed 
+2024-06-25 15:10:55.045 [main] INFO  com.andrew.delds.DeldsApplication - CID: Starting DeldsApplication using Java 21.0.2 with PID 33760 (C:\Users\aramac618\Downloads\delds\delds\target\classes started by aramac618 in C:\Users\aramac618\Downloads\delds) 
+2024-06-25 15:10:55.048 [main] DEBUG com.andrew.delds.DeldsApplication - CID: Running with Spring Boot v3.2.4, Spring v6.1.5 
+2024-06-25 15:10:55.049 [main] INFO  com.andrew.delds.DeldsApplication - CID: No active profile set, falling back to 1 default profile: "default" 
+2024-06-25 15:10:56.188 [main] DEBUG com.andrew.delds.filter.CIDFilter - CID: Filter 'CIDFilter' configured for use 
+2024-06-25 15:10:58.427 [main] INFO  com.andrew.delds.DeldsApplication - CID: Started DeldsApplication in 3.648 seconds (process running for 4.066) 
+2024-06-25 15:11:00.131 [http-nio-8080-exec-7] DEBUG c.a.delds.controller.MainController - CID:06600da1-9eb5-4d51-972d-84d286167a2a Received request to add new Account object 
+2024-06-25 15:11:00.131 [http-nio-8080-exec-7] DEBUG c.a.delds.service.AccountService - CID:06600da1-9eb5-4d51-972d-84d286167a2a Status code 200 - New Account object saved 
+2024-06-25 15:11:16.664 [http-nio-8080-exec-2] DEBUG c.a.delds.controller.MainController - CID:b7ec6f48-b6c1-4c21-8e60-bcfd37812e2f Received request to delete Account object with ID 1004 
+2024-06-25 15:11:16.679 [http-nio-8080-exec-2] DEBUG c.a.delds.service.AccountService - CID:b7ec6f48-b6c1-4c21-8e60-bcfd37812e2f Status code 200 - Account object with ID 1004 removed 
+2024-06-25 15:17:27.873 [main] INFO  com.andrew.delds.DeldsApplication - CID: Starting DeldsApplication using Java 21.0.2 with PID 31748 (C:\Users\aramac618\Downloads\delds\delds\target\classes started by aramac618 in C:\Users\aramac618\Downloads\delds) 
+2024-06-25 15:17:27.875 [main] DEBUG com.andrew.delds.DeldsApplication - CID: Running with Spring Boot v3.2.4, Spring v6.1.5 
+2024-06-25 15:17:27.877 [main] INFO  com.andrew.delds.DeldsApplication - CID: No active profile set, falling back to 1 default profile: "default" 
+2024-06-25 15:17:29.023 [main] DEBUG com.andrew.delds.filter.CIDFilter - CID: Filter 'CIDFilter' configured for use 
+2024-06-25 15:17:31.181 [main] INFO  com.andrew.delds.DeldsApplication - CID: Started DeldsApplication in 3.563 seconds (process running for 4.045) 
+2024-06-25 15:17:39.625 [http-nio-8080-exec-2] DEBUG c.a.delds.controller.MainController - CID:dd135071-417c-4348-bf49-11f72b7ffb51 Received request to add new Account object 
+2024-06-25 15:17:39.625 [http-nio-8080-exec-2] DEBUG c.a.delds.service.AccountService - CID:dd135071-417c-4348-bf49-11f72b7ffb51 Status code 200 - New Account object saved 
+2024-06-25 15:17:56.283 [http-nio-8080-exec-3] DEBUG c.a.delds.controller.MainController - CID:5ef4a516-cfb8-4959-ac09-3aeea708b294 Received request to delete Account object with ID 1004 
+2024-06-25 15:17:56.299 [http-nio-8080-exec-3] DEBUG c.a.delds.service.AccountService - CID:5ef4a516-cfb8-4959-ac09-3aeea708b294 Status code 200 - Account object with ID 1004 removed 
+2024-06-25 15:19:19.381 [main] INFO  com.andrew.delds.DeldsApplication - CID: Starting DeldsApplication using Java 21.0.2 with PID 21800 (C:\Users\aramac618\Downloads\delds\delds\target\classes started by aramac618 in C:\Users\aramac618\Downloads\delds) 
+2024-06-25 15:19:19.383 [main] DEBUG com.andrew.delds.DeldsApplication - CID: Running with Spring Boot v3.2.4, Spring v6.1.5 
+2024-06-25 15:19:19.385 [main] INFO  com.andrew.delds.DeldsApplication - CID: No active profile set, falling back to 1 default profile: "default" 
+2024-06-25 15:19:20.535 [main] DEBUG com.andrew.delds.filter.CIDFilter - CID: Filter 'CIDFilter' configured for use 
+2024-06-25 15:19:22.650 [main] INFO  com.andrew.delds.DeldsApplication - CID: Started DeldsApplication in 3.566 seconds (process running for 3.96) 
+2024-06-25 15:19:24.697 [http-nio-8080-exec-2] DEBUG c.a.delds.controller.MainController - CID:be7777d5-e218-464b-a96d-9be2bb5c55db Received request to add new Account object 
+2024-06-25 15:19:24.697 [http-nio-8080-exec-2] DEBUG c.a.delds.service.AccountService - CID:be7777d5-e218-464b-a96d-9be2bb5c55db Status code 200 - New Account object saved 
+2024-06-25 15:19:41.874 [http-nio-8080-exec-3] DEBUG c.a.delds.controller.MainController - CID:8c8a11be-7aee-4442-9dcd-ac1c26051bd2 Received request to delete Account object with ID 1004 
+2024-06-25 15:19:41.890 [http-nio-8080-exec-3] DEBUG c.a.delds.service.AccountService - CID:8c8a11be-7aee-4442-9dcd-ac1c26051bd2 Status code 200 - Account object with ID 1004 removed 
+2024-06-25 15:20:45.784 [main] INFO  com.andrew.delds.DeldsApplication - CID: Starting DeldsApplication using Java 21.0.2 with PID 37028 (C:\Users\aramac618\Downloads\delds\delds\target\classes started by aramac618 in C:\Users\aramac618\Downloads\delds) 
+2024-06-25 15:20:45.786 [main] DEBUG com.andrew.delds.DeldsApplication - CID: Running with Spring Boot v3.2.4, Spring v6.1.5 
+2024-06-25 15:20:45.787 [main] INFO  com.andrew.delds.DeldsApplication - CID: No active profile set, falling back to 1 default profile: "default" 
+2024-06-25 15:20:46.982 [main] DEBUG com.andrew.delds.filter.CIDFilter - CID: Filter 'CIDFilter' configured for use 
+2024-06-25 15:20:49.258 [main] INFO  com.andrew.delds.DeldsApplication - CID: Started DeldsApplication in 3.722 seconds (process running for 4.113) 
+2024-06-25 15:20:53.932 [http-nio-8080-exec-2] DEBUG c.a.delds.controller.MainController - CID:3c4468fe-43c7-457b-ac23-78902f245934 Received request to add new Account object 
+2024-06-25 15:20:53.932 [http-nio-8080-exec-2] DEBUG c.a.delds.service.AccountService - CID:3c4468fe-43c7-457b-ac23-78902f245934 Status code 200 - New Account object saved 
+2024-06-25 15:21:07.567 [http-nio-8080-exec-3] DEBUG c.a.delds.controller.MainController - CID:c12d3851-4db0-410c-9dd1-e8f3a21fadb6 Received request to delete Account object with ID 1004 
+2024-06-25 15:21:07.601 [http-nio-8080-exec-3] DEBUG c.a.delds.service.AccountService - CID:c12d3851-4db0-410c-9dd1-e8f3a21fadb6 Status code 200 - Account object with ID 1004 removed 
+2024-06-25 15:21:33.590 [http-nio-8080-exec-4] ERROR c.a.d.exception.RestExceptionHandler - CID:4df6e011-4b22-41ad-a75b-febd0c60a685 Status code 400 - Invalid URL: no handler found for GET /delivery/data/AccountSettings/account 
+2024-06-25 15:22:20.417 [http-nio-8080-exec-6] DEBUG c.a.delds.controller.MainController - CID:32fb9e8f-c498-42e3-a858-b01dc48fd87e Received request to fetch Account object with ID 1004 
+2024-06-25 15:22:20.428 [http-nio-8080-exec-6] ERROR c.a.d.exception.RestExceptionHandler - CID:32fb9e8f-c498-42e3-a858-b01dc48fd87e Status code 404 - Account object with ID 1004 not found 

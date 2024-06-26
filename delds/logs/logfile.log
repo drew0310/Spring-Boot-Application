@@ -1,0 +1,12 @@
+2024-06-25 12:27:08.024 [main] INFO  com.andrew.delds.AccountServiceTest - CID: Starting AccountServiceTest using Java 21.0.2 with PID 10808 (started by aramac618 in C:\Users\aramac618\Downloads\delds\delds) 
+2024-06-25 12:27:08.025 [main] DEBUG com.andrew.delds.AccountServiceTest - CID: Running with Spring Boot v3.2.4, Spring v6.1.5 
+2024-06-25 12:27:08.025 [main] INFO  com.andrew.delds.AccountServiceTest - CID: No active profile set, falling back to 1 default profile: "default" 
+2024-06-25 12:27:11.190 [main] INFO  com.andrew.delds.AccountServiceTest - CID: Started AccountServiceTest in 3.312 seconds (process running for 4.131) 
+2024-06-25 12:27:11.969 [main] DEBUG c.a.delds.service.AccountService - CID: Status code 200 - Account object with ID 7 removed 
+2024-06-25 12:27:12.072 [main] DEBUG c.a.delds.service.AccountService - CID: Status code 200 - New Account object saved 
+2024-06-25 12:27:12.084 [main] DEBUG c.a.delds.service.AccountService - CID: Status code 200 - Fetched Account object with ID 7 
+2024-06-25 12:27:12.090 [main] DEBUG c.a.delds.service.AccountService - CID: Status code 200 - Account object with ID 7 updated 
+2024-06-25 12:27:12.103 [main] DEBUG c.a.delds.service.AccountService - CID: Status code 200 - Fetched Account object with owner ID 7 
+2024-06-25 12:27:12.124 [main] DEBUG c.a.delds.service.AccountService - CID: Status code 200 - Fetched Account object with GUID sample GUID 
+2024-06-25 12:27:12.144 [main] DEBUG c.a.delds.service.AccountService - CID: Status code 200 - Fetched all Account objects 
+2024-06-25 12:27:12.153 [main] DEBUG c.a.delds.service.AccountService - CID: Status code 200 - New set of Account objects saved 
