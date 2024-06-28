@@ -39,11 +39,6 @@ public class MainController {
 
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
-    @RequestMapping("/welcome")
-    public String message() {
-        return "Hello! This is a demo project of the Delivery Data Service.";
-    }
-
 
     @GetMapping("/AccountSettings/accounts")
     public List<Account> findAllAccounts() throws ObjectNotFoundException {
